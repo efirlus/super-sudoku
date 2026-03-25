@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Super Sudoku</title>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <div class="header-left">
+          <h1>Super Sudoku</h1>
+        </div>
+        <div class="header-right controls">
+          <select id="difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+          <button id="btn-new-game" class="btn primary">New Game</button>
+          <button id="btn-load" class="btn accent">Load Board</button>
+        </div>
+      </header>
+
+      <main>
+        <!-- Game Play Area -->
+        <div id="game-view" class="game-view">
+          <div class="board-section">
+            <div class="status-bar">
+              <div class="timer" id="timer">00:00</div>
+              <div class="message" id="error-msg"></div>
+            </div>
+            <div id="sudoku-board" class="board"></div>
+          </div>
+          
+          <div class="numpad-section">
+            <div class="numpad-grid">
+              <button class="btn num-btn" data-val="1">1</button>
+              <button class="btn num-btn" data-val="2">2</button>
+              <button class="btn num-btn" data-val="3">3</button>
+              <button class="btn num-btn" data-val="4">4</button>
+              <button class="btn num-btn" data-val="5">5</button>
+              <button class="btn num-btn" data-val="6">6</button>
+              <button class="btn num-btn" data-val="7">7</button>
+              <button class="btn num-btn" data-val="8">8</button>
+              <button class="btn num-btn" data-val="9">9</button>
+            </div>
+            <div class="action-buttons">
+              <button class="btn num-btn delete-btn-cell" data-val="0">Erase</button>
+              <button id="btn-auto-memo" class="btn secondary">Auto Memo</button>
+              <button id="btn-undo" class="btn secondary">Undo</button>
+              <!-- Repurposed for custom mode save: -->
+              <button id="btn-custom" class="btn accent hidden">Save Custom Board</button>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Custom Board Save Modal -->
+      <div id="custom-modal" class="modal hidden">
+        <div class="modal-content">
+          <h2>Save Custom Board</h2>
+          <input type="text" id="custom-board-name" placeholder="Board Name..." />
+          <div class="modal-actions">
+            <button id="btn-save-custom" class="btn primary">Save</button>
+            <button id="btn-cancel-custom" class="btn secondary">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Load Board Full Page -->
+      <div id="load-page" class="modal hidden full-page">
+        <div class="load-header">
+          <h2>Load Custom Board</h2>
+          <button id="btn-close-load" class="btn secondary">Close</button>
+        </div>
+        <div id="saved-boards-grid" class="board-grid"></div>
+        <div class="floating-bottom">
+          <button id="btn-add-custom-board" class="btn primary add-btn">Add New Custom Board</button>
+          <div id="card-actions" class="hidden" style="display:flex;gap:15px;width:100%;max-width:400px;pointer-events:auto;">
+            <button id="btn-start-loaded" class="btn primary" style="flex:2;">Start Game</button>
+            <button id="btn-delete-loaded" class="btn secondary btn-delete-board" style="flex:1;">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
