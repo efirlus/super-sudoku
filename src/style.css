@@ -554,3 +554,25 @@ input[type="text"]:focus {
   justify-content: flex-end;
   gap: 10px;
 }
+
+.help-keys {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.help-keys kbd {
+  display: inline-block;
+  background-color: var(--surface0);
+  color: var(--text);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 1px solid var(--surface2);
+  min-width: 32px;
+  text-align: center;
+}

@@ -21,6 +21,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // Numpad
   const numBtns = document.querySelectorAll('.num-btn');
   
+  const helpModal = document.getElementById('help-modal');
+  const btnTitle = document.getElementById('title');
+  const btnCloseHelp = document.getElementById('btn-close-help');
+
+  btnTitle.addEventListener('click', () => helpModal.classList.remove('hidden'));
+  btnCloseHelp.addEventListener('click', () => helpModal.classList.add('hidden'));
+  helpModal.addEventListener('click', (e) => {
+    if (e.target === helpModal) helpModal.classList.add('hidden');
+  });
+
   const customModal = document.getElementById('custom-modal');
   const customNameInput = document.getElementById('custom-board-name');
   const btnSaveCustom = document.getElementById('btn-save-custom');
